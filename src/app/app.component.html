@@ -1,14 +1,18 @@
-<div *ngIf="pageData$ | async as page">
-  <h1>{{ page.titulo }}</h1>
-  <p>{{ page.descripcion }}</p>
-  <a [href]="page.url" target="_blank">Leer más</a>
-  <div *ngIf="page.imagen">
-    <img [src]="page.imagen" [alt]="page.titulo" />
+<div class="p-4">
+  <!-- Header -->
+  <nav class="flex w-screen justify-center border-gray-300">
+    <h1 class="text-[4em]">Wikihunt</h1>
+  </nav>
+  <!-- Breadcrumb -->
+  <p><b>Objetivo:</b> {{ this.gameService.objective }}</p>
+  <div class="flex gap-2">
+    <p><b>Pasos:</b></p>
+    <ng-container *ngFor="let item of breadcrumbs$ | async">
+      <p>{{ item }}</p>
+    </ng-container>
   </div>
-  <h3>Enlaces internos:</h3>
-  <ul>
-    <li class="link" *ngFor="let enlace of page.enlacesInternos">
-      <span (click)="getPage(enlace)">{{ enlace }}</span>
-    </li>
-  </ul>
+  <!-- Componentes-->
+  <div class="p-4">
+    <router-outlet></router-outlet>
+  </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="flex row mt-4">
+  <button (click)="prev()">Antes</button>
+  <div class="cards-container w-full">
+    <div
+      class="card flex flex-col justify-center"
+      *ngFor="let item of selectorItems; let i = index"
+      [class.centered]="i === currentIndex"
+    >
+      <h2>{{ item.name }}</h2>
+      <img [src]="item.img" [alt]="item.name" />
+      <p>{{ item.description }}</p>
+    </div>
+  </div>
+  <button (click)="next()">Después</button>
+</div>
+
+<div class="w-full flex justify-center mt-12">
+  <button routerLink="/game">Play</button>
+</div>

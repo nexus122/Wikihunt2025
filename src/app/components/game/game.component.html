@@ -1,0 +1,15 @@
+<div *ngIf="pageData | async as page">
+  <div class="flex flex-col">
+    <h1 class="text-5xl">{{ page.titulo }}</h1>
+    <div class="flex flex-row gap-2">
+      <div class="w-1/3 flex justify-center" *ngIf="page.imagen">
+        <img class="w-full" [src]="page.imagen" [alt]="page.titulo" />
+      </div>
+      <p class="w-2/3">{{ page.descripcion }}</p>
+    </div>
+  </div>
+  <h2 class="text-2xl">Enlaces:</h2>
+  <app-link-selector
+    [enlacesInternos]="page.enlacesInternos"
+  ></app-link-selector>
+</div>
