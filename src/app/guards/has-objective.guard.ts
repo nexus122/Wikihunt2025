@@ -3,7 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { GameService } from '../services/game.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HasObjectiveGuard implements CanActivate {
   private gameService = inject(GameService);

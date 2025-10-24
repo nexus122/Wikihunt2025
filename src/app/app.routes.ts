@@ -13,12 +13,12 @@ export const routes: Routes = [
   {
     path: 'game',
     component: GameComponent,
-    canActivate: [HasObjectiveGuard]
+    canActivate: [HasObjectiveGuard],
   },
   {
     path: 'victory',
     component: VictoryComponent,
-    canActivate: [HasWonGuard]
+    canActivate: [HasWonGuard],
   },
   {
     path: '**',

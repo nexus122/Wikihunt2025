@@ -37,20 +37,14 @@
   font-weight: bold;
   font-family: "Press Start 2P", cursive;
   line-height: 1.2;
-  text-shadow: 
-    2px 2px 0 #1f2937,
-    -2px -2px 0 #1f2937,
-    2px -2px 0 #1f2937,
+  text-shadow: 2px 2px 0 #1f2937, -2px -2px 0 #1f2937, 2px -2px 0 #1f2937,
     -2px 2px 0 #1f2937;
   letter-spacing: 2px;
   transform-style: preserve-3d;
   transition: all 0.3s ease;
-  
+
   &:hover {
-    text-shadow: 
-      3px 3px 0 #1f2937,
-      -3px -3px 0 #1f2937,
-      3px -3px 0 #1f2937,
+    text-shadow: 3px 3px 0 #1f2937, -3px -3px 0 #1f2937, 3px -3px 0 #1f2937,
       -3px 3px 0 #1f2937;
     transform: translateZ(10px);
   }
