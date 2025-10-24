@@ -1,15 +1,33 @@
-<div *ngIf="pageData | async as page">
-  <div class="flex flex-col">
-    <h1 class="text-5xl">{{ page.titulo }}</h1>
-    <div class="flex flex-row gap-2">
-      <div class="w-1/3 flex justify-center" *ngIf="page.imagen">
-        <img class="w-full" [src]="page.imagen" [alt]="page.titulo" />
+<div *ngIf="pageData | async as page" class="game-content">
+  <div class="content-section">
+    <h1
+      class="gradient-text pixel-text"
+      style="font-size: 2.5em; margin-bottom: 1rem"
+      [attr.data-text]="page.titulo"
+    >
+      {{ page.titulo }}
+    </h1>
+
+    <div class="flex-content">
+      <div class="image-section" *ngIf="page.imagen">
+        <img class="wiki-image" [src]="page.imagen" [alt]="page.titulo" />
       </div>
-      <p class="w-2/3">{{ page.descripcion }}</p>
+      <div class="description-section">
+        <p class="description-text">{{ page.descripcion }}</p>
+      </div>
     </div>
   </div>
-  <h2 class="text-2xl">Enlaces:</h2>
-  <app-link-selector
-    [enlacesInternos]="page.enlacesInternos"
-  ></app-link-selector>
+
+  <div class="links-section">
+    <h2
+      class="gradient-text pixel-text"
+      style="font-size: 1.8em; margin: 1rem 0"
+      [attr.data-text]="'Enlaces relacionados'"
+    >
+      Enlaces relacionados
+    </h2>
+    <app-link-selector
+      [enlacesInternos]="page.enlacesInternos"
+    ></app-link-selector>
+  </div>
 </div>

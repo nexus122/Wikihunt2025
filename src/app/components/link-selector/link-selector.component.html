@@ -1,10 +1,20 @@
-<div class="w-full flex flex-wrap gap-4">
-  <span *ngFor="let enlace of enlacesInternos">
-    <h5
-      class="text-2xl text-blue-500 font-bold text-center pointer"
-      (click)="gameService.getPage(enlace)"
-    >
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    placeholder="Buscar enlaces..."
+    class="search-input"
+  />
+</div>
+
+<div class="masonry-grid">
+  <div class="masonry-item" *ngFor="let enlace of filteredLinks">
+    <button class="wiki-button" (click)="gameService.getPage(enlace)">
       {{ enlace }}
-    </h5>
-  </span>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="searchTerm && filteredLinks.length === 0" class="no-results">
+  No se encontraron enlaces que coincidan con "{{ searchTerm }}"
 </div>

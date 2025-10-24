@@ -1,19 +1,45 @@
-<div class="flex row mt-4">
-  <button (click)="prev()">Antes</button>
-  <div class="cards-container w-full">
+<div class="container">
+  <div class="flex-center" style="margin: 2rem 0">
+    <button (click)="prev()" style="margin-right: 1rem">←</button>
     <div
-      class="card flex flex-col justify-center"
-      *ngFor="let item of selectorItems; let i = index"
-      [class.centered]="i === currentIndex"
+      class="cards-container"
+      style="position: relative; width: 300px; height: 400px; overflow: hidden"
     >
-      <h2>{{ item.name }}</h2>
-      <img [src]="item.img" [alt]="item.name" />
-      <p>{{ item.description }}</p>
+      <div
+        class="game-card"
+        *ngFor="let item of selectorItems; let i = index"
+        [class.centered]="i === currentIndex"
+        style="position: absolute; width: 100%; transition: all 0.5s ease"
+        [style.transform]="
+          'translateX(' +
+          (i - currentIndex) * 110 +
+          '%) scale(' +
+          (i === currentIndex ? '1' : '0.8') +
+          ')'
+        "
+        [style.opacity]="i === currentIndex ? '1' : '0.5'"
+      >
+        <h2
+          class="gradient-text pixel-text"
+          style="text-align: center; margin-bottom: 1rem; font-size: 1.8em"
+          [attr.data-text]="item.name"
+        >
+          {{ item.name }}
+        </h2>
+        <img
+          [src]="item.img"
+          [alt]="item.name"
+          style="width: 100%; border-radius: 0.5rem; margin-bottom: 1rem"
+        />
+        <p style="text-align: center">{{ item.description }}</p>
+      </div>
     </div>
+    <button (click)="next()" style="margin-left: 1rem">→</button>
   </div>
-  <button (click)="next()">Después</button>
-</div>
 
-<div class="w-full flex justify-center mt-12">
-  <button routerLink="/game">Play</button>
+  <div class="flex-center">
+    <button routerLink="/game" class="glass-effect animate-float">
+      ¡Comenzar aventura!
+    </button>
+  </div>
 </div>

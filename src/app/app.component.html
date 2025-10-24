@@ -1,18 +1,45 @@
-<div class="p-4">
+<div class="container">
   <!-- Header -->
-  <nav class="flex w-screen justify-center border-gray-300">
-    <h1 class="text-[4em]">Wikihunt</h1>
+  <nav class="flex-center glass-effect" style="padding: 1rem; margin: 1rem 0">
+    <h1
+      class="gradient-text"
+      style="
+        font-size: 4em;
+        margin: 0;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      "
+    >
+      WikiHunt
+    </h1>
   </nav>
-  <!-- Breadcrumb -->
-  <p><b>Objetivo:</b> {{ this.gameService.objective }}</p>
-  <div class="flex gap-2">
-    <p><b>Pasos:</b></p>
-    <ng-container *ngFor="let item of breadcrumbs$ | async">
-      <p>{{ item }}</p>
-    </ng-container>
+
+  <!-- Game Info -->
+  <div class="game-card" style="margin-bottom: 2rem">
+    <div class="flex-center" style="gap: 2rem; flex-wrap: wrap">
+      <div>
+        <span style="color: #a5b4fc">OBJETIVO</span>
+        <h2 class="gradient-text" style="margin: 0">
+          {{ this.gameService.objective }}
+        </h2>
+      </div>
+
+      <div *ngIf="(breadcrumbs$ | async)?.length">
+        <span style="color: #a5b4fc">PASOS</span>
+        <div class="flex-center" style="gap: 0.5rem; flex-wrap: wrap">
+          <ng-container
+            *ngFor="let item of breadcrumbs$ | async; let last = last"
+          >
+            <span class="wiki-link">{{ item }}</span>
+            <span *ngIf="!last" style="color: #a5b4fc">→</span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
   </div>
-  <!-- Componentes-->
-  <div class="p-4">
+
+  <!-- Main Content -->
+  <main class="glass-effect" style="padding: 2rem">
     <router-outlet></router-outlet>
-  </div>
+  </main>
 </div>
