@@ -1,4 +1,97 @@
-.link {
-  cursor: pointer;
-  color: blue;
+.game-content {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.flex-content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.image-section {
+  flex: 0 0 300px;
+
+  @media (max-width: 768px) {
+    flex: 0 0 auto;
+  }
+}
+
+.wiki-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+.description-section {
+  flex: 1;
+}
+
+.description-text {
+  color: #d1d5db;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  margin: 0;
+
+  /* Estilizar la barra de desplazamiento */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.5);
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(99, 102, 241, 0.7);
+    }
+  }
+}
+
+.links-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.gradient-text {
+  text-align: center;
+  color: #6366f1;
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 2.5em;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-size: 1.8em;
+  margin: 1rem 0;
+  letter-spacing: 0.5px;
 }

@@ -9,7 +9,7 @@
 
 <div class="masonry-grid">
   <div class="masonry-item" *ngFor="let enlace of filteredLinks">
-    <button class="wiki-button" (click)="gameService.getPage(enlace)">
+    <button class="wiki-button" (click)="selectLink(enlace)">
       {{ enlace }}
     </button>
   </div>

@@ -1,0 +1,165 @@
+.victory-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background: linear-gradient(to bottom, #111827, #1f2937);
+}
+
+.victory-card {
+  background-color: #1f2937;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 28rem;
+  width: 100%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+.victory-title {
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #6366f1;
+  background: linear-gradient(45deg, #6366f1, #818cf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.objective-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.objective-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 4px solid rgba(99, 102, 241, 0.5);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.stats-container {
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #6366f1, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .steps-text,
+  .time-text {
+    color: #a5b4fc;
+    margin: 0.25rem 0;
+  }
+}
+
+.share-section {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .share-title {
+    font-size: 1.25rem;
+    color: #a5b4fc;
+    margin-bottom: 1rem;
+  }
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  .share-button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: transform 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.twitter {
+      background-color: #000;
+      &:hover {
+        background-color: #1a1a1a;
+      }
+    }
+
+    &.facebook {
+      background-color: #2563eb;
+      &:hover {
+        background-color: #1d4ed8;
+      }
+    }
+
+    &.whatsapp {
+      background-color: #16a34a;
+      &:hover {
+        background-color: #15803d;
+      }
+    }
+
+    &.copy {
+      background-color: #4b5563;
+      &:hover {
+        background-color: #374151;
+      }
+    }
+  }
+}
+
+.play-again-section {
+  text-align: center;
+
+  .play-again-button {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #4338ca;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

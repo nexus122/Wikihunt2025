@@ -1,10 +1,6 @@
 <div *ngIf="pageData | async as page" class="game-content">
   <div class="content-section">
-    <h1
-      class="gradient-text pixel-text"
-      style="font-size: 2.5em; margin-bottom: 1rem"
-      [attr.data-text]="page.titulo"
-    >
+    <h1 class="gradient-text pixel-text page-title">
       {{ page.titulo }}
     </h1>
 
@@ -13,19 +9,15 @@
         <img class="wiki-image" [src]="page.imagen" [alt]="page.titulo" />
       </div>
       <div class="description-section">
-        <p class="description-text">{{ page.descripcion }}</p>
+        <div class="description-text">
+          <p>{{ page.descripcion }}</p>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="links-section">
-    <h2
-      class="gradient-text pixel-text"
-      style="font-size: 1.8em; margin: 1rem 0"
-      [attr.data-text]="'Enlaces relacionados'"
-    >
-      Enlaces relacionados
-    </h2>
+    <h2 class="gradient-text pixel-text section-title">Enlaces relacionados</h2>
     <app-link-selector
       [enlacesInternos]="page.enlacesInternos"
     ></app-link-selector>

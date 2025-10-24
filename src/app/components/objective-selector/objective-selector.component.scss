@@ -1,20 +1,54 @@
-.flex {
+.selector-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-img {
-  width: 80%;
-  height: auto;
+  margin: 2rem 0;
+  gap: 1rem;
 }
 
 .cards-container {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 20%;
   position: relative;
-  transition: transform 0.5s ease-in-out;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.game-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.title-text {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8em;
+  color: #6366f1;
+  font-weight: bold;
+  font-family: "Press Start 2P", cursive;
+  line-height: 1.2;
+}
+
+.objective-image {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 .card {
@@ -24,7 +58,7 @@ img {
   gap: 1em;
   opacity: 0.5;
   transform: scale(0.8);
-  transition: transform 0.3s, opacity 0.3s;
+  transition: all 0.3s ease;
   width: 100%;
   text-align: center;
 }
@@ -34,13 +68,54 @@ img {
   transform: scale(1.2);
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+.nav-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  color: #6366f1;
+  font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
   z-index: 10;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.1);
+  }
 }
 
-.overflow {
-  overflow: hidden;
+.glass-effect {
+  background: rgba(99, 102, 241, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  color: #6366f1;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+.objective-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }

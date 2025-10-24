@@ -1,17 +1,49 @@
-<div class="container flex-center" style="height: 100vh">
-  <div class="game-card animate-float">
-    <h1
-      class="gradient-text"
-      style="
-        font-size: 4em;
-        letter-spacing: 3px;
-        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-      "
-    >
-      ¡Has ganado!
-    </h1>
-    <div class="flex-center" style="gap: 1rem; margin-top: 2rem">
-      <button routerLink="/" class="glass-effect">Volver al inicio</button>
+<div class="victory-container">
+  <div class="victory-card game-card animate-float">
+    <!-- Título y mensaje principal -->
+    <h1 class="gradient-text pixel-text victory-title">¡Victoria!</h1>
+
+    <!-- Información del objetivo -->
+    <div class="objective-info">
+      <div class="objective-image">
+        <img [src]="objectiveImage" [alt]="objective" class="rounded-image" />
+      </div>
+      <div class="stats-container">
+        <h2 class="gradient-text pixel-text">
+          Has encontrado a {{ objective }}
+        </h2>
+        <p class="steps-text">en {{ steps }} pasos</p>
+        <p class="time-text">
+          en
+          {{
+            gameDuration >= 60
+              ? (gameDuration / 60 | number : "1.0-0") + "m "
+              : ""
+          }}{{ gameDuration % 60 }}s
+        </p>
+      </div>
+    </div>
+
+    <!-- Compartir en redes sociales -->
+    <div class="share-section">
+      <h3 class="share-title">¡Comparte tu logro!</h3>
+      <div class="share-buttons">
+        <button (click)="shareTwitter()" class="share-button twitter">𝕏</button>
+        <button (click)="shareFacebook()" class="share-button facebook">
+          f
+        </button>
+        <button (click)="shareWhatsapp()" class="share-button whatsapp">
+          w
+        </button>
+        <button (click)="copyToClipboard()" class="share-button copy">
+          📋
+        </button>
+      </div>
+    </div>
+
+    <!-- Botón de volver a jugar -->
+    <div class="play-again-section">
+      <button routerLink="/" class="play-again-button">¡Jugar de nuevo!</button>
     </div>
   </div>
 </div>

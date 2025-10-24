@@ -23,7 +23,8 @@ export class LinkSelectorComponent {
     );
   }
 
-  ngOnInit() {
-    // Initialize component
+  selectLink(enlace: string) {
+    this.gameService.getPage(enlace);
+    this.searchTerm = '';
   }
 }
