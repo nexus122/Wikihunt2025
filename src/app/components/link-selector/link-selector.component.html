@@ -1,20 +1,23 @@
 <div class="search-container">
+  <label for="link-search" class="visually-hidden">Buscar enlaces</label>
   <input
+    id="link-search"
     type="text"
     [(ngModel)]="searchTerm"
     placeholder="Buscar enlaces..."
     class="search-input"
+    aria-label="Buscar enlaces relacionados"
   />
 </div>
 
-<div class="masonry-grid">
-  <div class="masonry-item" *ngFor="let enlace of filteredLinks">
-    <button class="wiki-button" (click)="selectLink(enlace)">
+<div class="masonry-grid" role="list" aria-label="Enlaces relacionados disponibles">
+  <div class="masonry-item" *ngFor="let enlace of filteredLinks" role="listitem">
+    <button class="wiki-button" (click)="selectLink(enlace)" [attr.aria-label]="'Navegar a ' + enlace">
       {{ enlace }}
     </button>
   </div>
 </div>
 
-<div *ngIf="searchTerm && filteredLinks.length === 0" class="no-results">
+<div *ngIf="searchTerm && filteredLinks.length === 0" class="no-results" role="status" aria-live="polite">
   No se encontraron enlaces que coincidan con "{{ searchTerm }}"
 </div>

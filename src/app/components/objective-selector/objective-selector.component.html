@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="selector-controls">
-    <button class="nav-button" (click)="prev()">←</button>
-    <div class="cards-container">
-      <div
+  <section class="selector-controls" aria-label="Selección de objetivo">
+    <button class="nav-button" (click)="prev()" aria-label="Objetivo anterior">←</button>
+    <div class="cards-container" role="region" aria-live="polite" aria-label="Objetivo actual">
+      <article
         class="game-card"
         *ngFor="let item of selectorItems; let i = index"
         [class.centered]="i === currentIndex"
@@ -14,16 +14,17 @@
           ')'
         "
         [style.opacity]="i === currentIndex ? '1' : '0.5'"
+        [attr.aria-hidden]="i !== currentIndex"
       >
         <h2 class="title-text">{{ item.name }}</h2>
-        <img [src]="item.img" [alt]="item.name" class="objective-image" />
-      </div>
+        <img [src]="item.img" [alt]="'Imagen de ' + item.name" class="objective-image" />
+      </article>
     </div>
-    <button class="nav-button" (click)="next()">→</button>
-  </div>
+    <button class="nav-button" (click)="next()" aria-label="Siguiente objetivo">→</button>
+  </section>
 
   <div class="flex-center">
-    <button routerLink="/game" class="glass-effect animate-float">
+    <button routerLink="/game" class="glass-effect animate-float" aria-label="Comenzar la aventura">
       ¡Comenzar aventura!
     </button>
   </div>

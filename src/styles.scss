@@ -12,6 +12,35 @@ body {
   padding: 0;
 }
 
+/* Accessibility - Skip to main content */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #6d28d9;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+.skip-to-main:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Typography */
 h1,
 h2,
@@ -36,6 +65,8 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 44px; /* Minimum touch target for accessibility */
+  font-size: 1rem;
 }
 
 button:hover {
@@ -48,6 +79,16 @@ button:active {
   transform: translateY(0);
 }
 
+button:focus-visible {
+  outline: 3px solid rgba(139, 92, 246, 0.8);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Cards */
 .game-card {
   background: rgba(255, 255, 255, 0.1);
@@ -57,6 +98,16 @@ button:active {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
   transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .game-card:hover {
@@ -135,6 +186,16 @@ button:active {
 .search-container {
   margin-bottom: 2rem;
   padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 0.25rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .search-input {
@@ -148,6 +209,11 @@ button:active {
   border-radius: 0.75rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+
+  @media (max-width: 480px) {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+  }
 }
 
 .search-input:focus {
@@ -380,6 +446,14 @@ button:active {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.25rem;
+  }
 }
 
 .content-section {
@@ -388,6 +462,16 @@ button:active {
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .flex-content {
@@ -431,4 +515,12 @@ button:active {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 0.25rem;
+  }
 }

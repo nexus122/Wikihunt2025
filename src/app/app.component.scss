@@ -1,4 +1,52 @@
-.link {
-  color: blue;
-  cursor: pointer;
+/* App Component Styles */
+
+/* Responsive adjustments for header */
+header nav {
+  @media (max-width: 768px) {
+    padding: 0.75rem !important;
+    margin: 0.5rem 0 !important;
+
+    h1 {
+      font-size: 3em !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem !important;
+    margin: 0.25rem 0 !important;
+
+    h1 {
+      font-size: 2.5em !important;
+      letter-spacing: 1px !important;
+    }
+  }
+}
+
+/* Responsive adjustments for main content */
+main {
+  @media (max-width: 768px) {
+    padding: 1rem !important;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Game info section */
+section.game-card {
+  @media (max-width: 768px) {
+    margin-bottom: 1rem !important;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.8);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
 }

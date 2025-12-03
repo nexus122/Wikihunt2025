@@ -1,25 +1,25 @@
-<div *ngIf="pageData | async as page" class="game-content">
-  <div class="content-section">
+<article *ngIf="pageData | async as page" class="game-content">
+  <section class="content-section">
     <h1 class="gradient-text pixel-text page-title">
       {{ page.titulo }}
     </h1>
 
     <div class="flex-content">
-      <div class="image-section" *ngIf="page.imagen">
-        <img class="wiki-image" [src]="page.imagen" [alt]="page.titulo" />
-      </div>
+      <figure class="image-section" *ngIf="page.imagen">
+        <img class="wiki-image" [src]="page.imagen" [alt]="'Imagen de ' + page.titulo" />
+      </figure>
       <div class="description-section">
-        <div class="description-text">
+        <div class="description-text" role="region" aria-label="Description">
           <p>{{ page.descripcion }}</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="links-section">
-    <h2 class="gradient-text pixel-text section-title">Enlaces relacionados</h2>
+  <section class="links-section" aria-labelledby="related-links-title">
+    <h2 id="related-links-title" class="gradient-text pixel-text section-title">Enlaces relacionados</h2>
     <app-link-selector
       [enlacesInternos]="page.enlacesInternos"
     ></app-link-selector>
-  </div>
-</div>
+  </section>
+</article>

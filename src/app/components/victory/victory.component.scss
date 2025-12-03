@@ -5,6 +5,14 @@
   min-height: 100vh;
   padding: 1rem;
   background: linear-gradient(to bottom, #111827, #1f2937);
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.25rem;
+  }
 }
 
 .victory-card {
@@ -16,6 +24,16 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border: 2px solid rgba(99, 102, 241, 0.5);
   animation: float 3s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .victory-title {
@@ -27,6 +45,11 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+
+  @media (max-width: 480px) {
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .objective-info {

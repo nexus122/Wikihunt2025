@@ -1,19 +1,19 @@
 <div class="victory-container">
-  <div class="victory-card game-card animate-float">
+  <article class="victory-card game-card animate-float" role="alert" aria-live="polite">
     <!-- Título y mensaje principal -->
     <h1 class="gradient-text pixel-text victory-title">¡Victoria!</h1>
 
     <!-- Información del objetivo -->
-    <div class="objective-info">
-      <div class="objective-image">
-        <img [src]="objectiveImage" [alt]="objective" class="rounded-image" />
-      </div>
+    <section class="objective-info" aria-labelledby="victory-message">
+      <figure class="objective-image">
+        <img [src]="objectiveImage" [alt]="'Imagen de ' + objective" class="rounded-image" />
+      </figure>
       <div class="stats-container">
-        <h2 class="gradient-text pixel-text">
+        <h2 id="victory-message" class="gradient-text pixel-text">
           Has encontrado a {{ objective }}
         </h2>
-        <p class="steps-text">en {{ steps }} pasos</p>
-        <p class="time-text">
+        <p class="steps-text" aria-label="Número de pasos">en {{ steps }} pasos</p>
+        <p class="time-text" aria-label="Tiempo transcurrido">
           en
           {{
             gameDuration >= 60
@@ -22,28 +22,28 @@
           }}{{ gameDuration % 60 }}s
         </p>
       </div>
-    </div>
+    </section>
 
     <!-- Compartir en redes sociales -->
-    <div class="share-section">
-      <h3 class="share-title">¡Comparte tu logro!</h3>
-      <div class="share-buttons">
-        <button (click)="shareTwitter()" class="share-button twitter">𝕏</button>
-        <button (click)="shareFacebook()" class="share-button facebook">
+    <section class="share-section" aria-labelledby="share-title">
+      <h3 id="share-title" class="share-title">¡Comparte tu logro!</h3>
+      <div class="share-buttons" role="group" aria-label="Compartir en redes sociales">
+        <button (click)="shareTwitter()" class="share-button twitter" aria-label="Compartir en Twitter">𝕏</button>
+        <button (click)="shareFacebook()" class="share-button facebook" aria-label="Compartir en Facebook">
           f
         </button>
-        <button (click)="shareWhatsapp()" class="share-button whatsapp">
+        <button (click)="shareWhatsapp()" class="share-button whatsapp" aria-label="Compartir en WhatsApp">
           w
         </button>
-        <button (click)="copyToClipboard()" class="share-button copy">
+        <button (click)="copyToClipboard()" class="share-button copy" aria-label="Copiar enlace al portapapeles">
           📋
         </button>
       </div>
-    </div>
+    </section>
 
     <!-- Botón de volver a jugar -->
-    <div class="play-again-section">
-      <button routerLink="/" class="play-again-button">¡Jugar de nuevo!</button>
-    </div>
-  </div>
+    <section class="play-again-section">
+      <button routerLink="/" class="play-again-button" aria-label="Volver a jugar">¡Jugar de nuevo!</button>
+    </section>
+  </article>
 </div>
